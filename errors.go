@@ -379,3 +379,11 @@ func IsWithCode(err error) bool {
 	_, ok := err.(*withCode)
 	return ok
 }
+
+func GetCodeMessage(err error) string {
+	code, ok := err.(*withCode)
+	if !ok {
+		return ""
+	}
+	return code.Message()
+}
